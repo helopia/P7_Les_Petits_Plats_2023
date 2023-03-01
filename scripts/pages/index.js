@@ -1,5 +1,5 @@
 import data from '../data/recipes.js'
-// import SearchForm from '../template/SearchForm.js'
+import SearchForm from '../templates/search-form.js'
 import RecipeCard from '../templates/recipes-card.js'
 
 class IndexPage {
