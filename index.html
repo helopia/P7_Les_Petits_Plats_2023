@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <title>Les Petits Plats</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- CSS only -->
+    <link href="./assets/css/style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous"/>
+</head>
+
+<body>
+<!--   Header  -->
+<header>
+    <a href="#" title="Accueil Les Petits Plats">
+        <img src="./assets/medias/logo.png" class="logo" alt="Les Petits Plats - Accueil" />
+    </a>
+</header>
+<!--  Main  -->
+<main id="main">
+    <!--  Search   -->
+    <section id="searchSection">
+        <div id="searchError" class="data-error"></div>
+    </section>
+    <!--   Tag   -->
+    <section class="selectedTag"></section>
+    <section class="tag"></section>
+    <!--   Gallery   -->
+    <section id="gallery"></section>
+    <div id="errorMessage"><span>Aucune recette ne correspond à vos critères …</span></div>
+</main>
+<!--   Scripts  -->
+<script src="/scripts/pages/index.js" type="module"></script>
+</body>
+</html>
