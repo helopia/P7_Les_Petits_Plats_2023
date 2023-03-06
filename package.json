@@ -1,15 +1,24 @@
 {
-  "name": "p7-lespetitsplats_2023",
+  "name": "Les_Petits_Plats",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "P7 - Les petits plats",
+  "main": "index.html",
   "scripts": {
-    "sass": "sass --watch ./sass/main.scss:./assets/css/style.css --style compressed",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass --watch ./sass/main.scss:./assets/css/style.css "
   },
-  "author": "BALSACK Thomas",
+  "author": "BALSACK",
   "license": "ISC",
   "dependencies": {
-    "bootstrap": "^5.3.0-alpha1"
+    "normalize.css": "^8.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.17.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.8.3"
   }
 }

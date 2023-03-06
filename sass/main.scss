@@ -1,2 +1,14 @@
-@import "utils/custombootstrap";
-@import "../node_modules/bootstrap/scss/bootstrap";
+@import './utils/variables';
+@import './utils/mixins';
+
+@import './base/base';
+@import './base/typography';
+
+@import './components/search';
+@import './components/recipeCard';
+@import './components/tag';
+@import './components/globalResponsive';
+
+@import './layout/header';
+
+@import './pages/index';
