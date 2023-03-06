@@ -1,6 +1,6 @@
 import { QS, Tog } from './domUtils.js'
 
-/** *************** GLOBAL **************************** */
+// / GLOBAL /
 const body = document.querySelector('body')
 const main = document.querySelector('#main')
 
@@ -42,7 +42,7 @@ export const trapFocus = (modal) => {
   firstFocusableElement.focus()
 }
 
-/** *************** CONTACT  **************************** */
+// / CONTACT  /
 const contactModal = QS('#contact_modal')
 
 export const onOpenContactModal = () => {
@@ -53,7 +53,7 @@ export const onOpenContactModal = () => {
 export const onCloseContactModal = () => {
   onModal(contactModal)
 }
-/** *************** LIGHTBOX  **************************** */
+// / LIGHTBOX  /
 const lightboxModal = QS('.lightbox_modal')
 
 export const onOpenLightboxModal = () => {
@@ -64,7 +64,7 @@ export const onOpenLightboxModal = () => {
 export const onCloseLightboxModal = () => {
   onModal(lightboxModal)
 }
-/** *************** KEYBOARD  **************************** */
+// / KEYBOARD  /
 export const onEnterClick = (target) => {
   target.addEventListener('keypress', (event) => {
     if (event.key === 'Enter') {

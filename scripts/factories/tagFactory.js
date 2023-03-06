@@ -3,7 +3,7 @@ export default class TagFactory {
     this.recipes = recipes
   }
 
-  //* ******************** TAGS SORTING  ***********************************/
+  // TAGS SORTING  /
   sortTags = (tagsList) =>
     tagsList.sort((a, b) => {
       if (a > b) {
@@ -15,13 +15,13 @@ export default class TagFactory {
       return 0
     })
 
-  //* ******************** GET UNIQUE TAGS  ***********************************/
+  // GET UNIQUE TAGS  /
   reduceTags = (tagsList) => tagsList.reduce((prev, curr) => [...prev, ...curr])
 
-  //* ******************** GET UNIQUE TAGS  ***********************************/
+  // GET UNIQUE TAGS  /
   setUniqueTags = (tagsList) => [...new Set(tagsList)]
 
-  //* ******************** GET ALL TAGS  ***********************************/
+  // GET ALL TAGS  /
   getAllTags = (tagType) => {
     const error = 'unknow tag type'
     const tags = []
@@ -46,6 +46,6 @@ export default class TagFactory {
     }
   }
 
-  //* ******************** RETURN TAGS LIST  ***********************************/
+  // RETURN TAGS LIST  /
   getTagsList = (tagType) => this.sortTags(this.setUniqueTags(this.getAllTags(tagType)))
 }

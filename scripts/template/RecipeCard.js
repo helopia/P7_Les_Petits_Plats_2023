@@ -17,12 +17,12 @@ export default class RecipeCard {
     SetAt('card', this.$wrapperCard)
   }
 
-  //* ********************  RESET GALLERY CONTENT  ***********************************/
+  //  RESET GALLERY CONTENT  //
   clearWrappers() {
     this.gallery.innerHTML = ''
   }
 
-  //* ********************  GENERATE THE CARDS  ***********************************/
+  //  GENERATE CARDS  //
   render() {
     let dom = ''
     dom += `

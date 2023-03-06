@@ -11,7 +11,7 @@ export default class TagSelector {
     this.tagWrapper = QS('.tag')
   }
 
-  //* ********************  DISPLAY THE SELECTED TAG  ***********************************/
+  //  DISPLAY THE SELECTED TAG  /
   createTag(tag) {
     let className = ''
     switch (this.tagType) {
@@ -42,7 +42,7 @@ export default class TagSelector {
     selectedTag.appendChild(span)
   }
 
-  //* ******************** SET TAGS CLASSES? ATTRIBUTES AND EVENT  ***********************************/
+  // SET TAGS CLASSES? ATTRIBUTES AND EVENT  /
   setTagsAttributes(parent) {
     QSAll('ul', parent).forEach((ul) => SetAt('col', ul))
     QSAll('li', parent).forEach((li) => {
@@ -61,7 +61,7 @@ export default class TagSelector {
     })
   }
 
-  //* ******************** FILTERING TAGS LIST ON INPUT  ***********************************/
+  // FILTERING TAGS LIST ON INPUT  /
   onTagFilter() {
     const dropdown = this.$wrapper
     const tagInput = QS(`#in${this.tagType}`, dropdown)
@@ -76,7 +76,7 @@ export default class TagSelector {
     })
   }
 
-  //* ******************** GENERATE THE DROPDOWN'S ITEMS  ***********************************/
+  // GENERATE THE DROPDOWN'S ITEMS  /
   tagListGenerator = (filteredList = false) => {
     let index = 1
     let indexTotal = 1
@@ -100,7 +100,7 @@ export default class TagSelector {
     return tagDropdown
   }
 
-  //* ******************** CREATE THE DROPDOWN LIST  ***********************************/
+  // CREATE THE DROPDOWN LIST  /
   render(tagName) {
     let tagDropdown = `
       <label for="in${this.tagType}" class="sr-only">Liste de ${tagName}</label>
