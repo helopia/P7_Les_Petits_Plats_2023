@@ -86,26 +86,21 @@ export const onKeyDown = (target) => {
     'keydown',
     (event) => {
       if (event.defaultPrevented) {
-        return // Ne devrait rien faire si l'événement de la touche était déjà consommé.
+        return
       }
       switch (event.key) {
         case 'ArrowLeft':
-          // Faire quelque chose pour la touche "left arrow" pressée.
           QS('.fa-chevron-left', target).click()
           break
         case 'ArrowRight':
-          // Faire quelque chose pour la touche "right arrow" pressée.
           QS('.fa-chevron-right', target).click()
           break
         case 'Escape':
-          // Faire quelque chose pour la touche "esc" pressée.
           QS('.fa-times', target).click()
           break
         default:
-          return // Quitter lorsque cela ne gère pas l'événement touche.
+          return
       }
-
-      // Annuler l'action par défaut pour éviter qu'elle ne soit traitée deux fois.
       event.preventDefault()
     },
     true

@@ -1,28 +1,28 @@
-/** *************** DOM querySelector **************************** */
+// / DOM querySelector /
 export function QS(selector, parent = document) {
   return parent.querySelector(selector)
 }
-/** *************** DOM querySelectorAll **************************** */
+// / DOM querySelectorAll /
 export function QSAll(selector, parent = document) {
   return [...parent.querySelectorAll(selector)]
 }
-/** *************** DOM getElementById **************************** */
+// / DOM getElementById /
 export function EById(selector, parent = document) {
   return parent.getElementById(selector)
 }
-/** *************** DOM appendChild **************************** */
+// / DOM appendChild /
 export function ApC(dom, parent = document) {
   parent.appendChild(dom)
 }
-/** *************** DOM setAttribute **************************** */
+// / DOM setAttribute /
 export function SetAt(className, parent = document) {
   parent.setAttribute('class', className)
 }
-/** *************** DOM classList.toggle **************************** */
+// / DOM classList.toggle /
 export function Tog(className, parent = document) {
   parent.classList.toggle(className)
 }
-/** *************** DOM createElement **************************** */
+// / DOM createElement /
 export function CreaE(type, options = {}) {
   const element = document.createElement(type)
   Object.entries(options).forEach(([key, value]) => {
@@ -47,7 +47,7 @@ export function CreaE(type, options = {}) {
   })
   return element
 }
-/** *************** CACHE  **************************** */
+// / CACHE  /
 export function memoize(cb) {
   const cache = new Map()
   return (...args) => {

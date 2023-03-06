@@ -22,7 +22,7 @@ export default class SearchForm {
     const tag = new TagFactory(recipes)
     new TagSelector(tag.getTagsList('ING'), 'ING').render('ingredients')
     new TagSelector(tag.getTagsList('APP'), 'APP').render('appareils')
-    new TagSelector(tag.getTagsList('UST'), 'UST').render('ustensiles')
+    new TagSelector(tag.getTagsList('UST'), 'UST').render('ustensils')
   }
 
   // GET A LIST OF ALL SELECTED TAGS  /
@@ -31,7 +31,7 @@ export default class SearchForm {
     const appTag = []
     const ustTag = []
 
-    QSAll('.selectedTag > span').forEach((span) => {
+    for (const span of QSAll('.selectedTag > span')) {
       const tagType = span.getAttribute('class')
       const value = span.getAttribute('value')
       switch (tagType) {
@@ -47,12 +47,12 @@ export default class SearchForm {
         default:
           throw error
       }
-    })
+    }
 
     return [ingTag, appTag, ustTag]
   }
 
-  // DISPLAY MESSAGES  //
+  // DISPLAY MESSAGES  /
   // clear validation message
   clearValidationMessage(element) {
     element.setAttribute('data-error-visible', 'false')
@@ -61,7 +61,7 @@ export default class SearchForm {
     QS('#errorMessage').style.display = 'none'
   }
 
-  // set validation message//
+  // set validation message
   setValidationMessage(element, message) {
     element.setAttribute('data-error-visible', 'true')
     element.setAttribute('data-error', message)
@@ -70,14 +70,14 @@ export default class SearchForm {
     QS('#errorMessage').style.display = 'flex'
   }
 
-  // CHECK IF SEARCHFOR TAGS ARE IN SEARCHIN //
+  // CHECK IF SEARCHFOR TAGS ARE IN SEARCHIN /
   isIncluded(searchIn, searchFor, isING = false) {
     if (isING && searchFor) {
       let isIn = true
-      searchFor.forEach((item) => {
+      for (const item of searchFor) {
         if (searchIn.includes(item) && isIn) isIn = true
         else isIn = false
-      })
+      }
       return isIn
     }
 
@@ -85,7 +85,7 @@ export default class SearchForm {
     return false
   }
 
-  // CREATE RECIPE CARDS //
+  // CREATE RECIPE CARDS /
   renderGallery(allRecipe) {
     const search = this.$wrapperSearch
     const searchField = search.querySelector('.input-field')
@@ -100,9 +100,9 @@ export default class SearchForm {
     const appTags = tagsSelectors[1].join()
     const ustTags = tagsSelectors[2].join()
 
-    // Filter search//
-    data.forEach((recipe) => {
-      // Display All recipes//
+    // Filter search
+    for (const recipe of data) {
+      // Display All recipes
       if (allRecipe) {
         const card = new RecipeCard(recipe)
         document.querySelector('#gallery').appendChild(card.render())
@@ -110,29 +110,30 @@ export default class SearchForm {
       } else {
         const ingredients = recipe.ingredients.map((item) => item.ingredient).join()
         const recipeIn = `${recipe.name} ${ingredients} ${recipe.description}`.toLowerCase()
-        // Check All Search and Tags Values//
+        // Check All Search and Tags Values
         const isSearchIncluded = this.isIncluded(recipeIn, searchValue)
         const isIngIncluded = this.isIncluded(ingredients.toLowerCase(), ingTags.split(','), true)
         const isAppIncluded = this.isIncluded(recipe.appliance.toLowerCase(), appTags.split(','), true)
-        const isUstIncluded = this.isIncluded(recipe.ustensils.map((item) => item.toLowerCase()).join(), ustTags.split(','), true)
-        console.log(recipe.name)
-        console.log(recipe.ustensils.map((item) => item.toLowerCase()).join(), ' /n', ustTags)
-        // Display valide recipes//
+        const ustensils = []
+        for (const item of recipe.ustensils) ustensils.push(item.toLowerCase())
+        const isUstIncluded = this.isIncluded(ustensils.join(), ustTags.split(','), true)
+
+        // Display valide recipes
         if (isSearchIncluded && isIngIncluded && isAppIncluded && isUstIncluded) {
           const card = new RecipeCard(recipe)
           document.querySelector('#gallery').appendChild(card.render())
           filteredRecipes.push(recipe)
         }
       }
-    })
-    // If we got results, we clear all errors Else we display an error//
+    }
+    // If we got results, we clear all errors Else we display an error
     if (filteredRecipes.length) {
       this.onTagSearch(filteredRecipes)
       this.clearValidationMessage(searchError)
     } else this.setValidationMessage(searchError, this.error)
   }
 
-  // CHECK CONDITIONS BEFORE SEARCH  //
+  // CHECK CONDITIONS BEFORE SEARCH  /
   searchValidation() {
     const searchError = QS('#searchError')
     const search = this.$wrapperSearch
@@ -147,12 +148,12 @@ export default class SearchForm {
     }
   }
 
-  // RENDER ALL SECTIONS  //
+  // RENDER THE ALL SECTIONS  /
   render() {
     const search = this.$wrapperSearch
     const searchField = search.querySelector('.input-field')
     const searchButton = search.querySelector('.btn-search')
-    // Search management//
+    // Search management
     searchButton.addEventListener('click', (e) => {
       e.preventDefault()
       e.stopPropagation()
@@ -162,14 +163,14 @@ export default class SearchForm {
       this.searchValidation()
     })
     ModalAccessibility.onEnterClick(searchButton)
-    // Tags Dropdown render//
+    // Tags Dropdown render
     const tag = new TagFactory(data)
     new TagSelector(tag.getTagsList('ING'), 'ING').render('ingredients')
     new TagSelector(tag.getTagsList('APP'), 'APP').render('appareils')
-    new TagSelector(tag.getTagsList('UST'), 'UST').render('ustensiles')
+    new TagSelector(tag.getTagsList('UST'), 'UST').render('ustensils')
   }
 
-  // DISPLAY SEARCH SECTION
+  // DISPLAY SEARCH SECTION  /
   display() {
     let dom = ''
     dom += `
