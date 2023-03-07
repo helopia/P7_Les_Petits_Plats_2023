@@ -1,15 +1,15 @@
 // Class en charge de centraliser et orchestrer l'ensemble des classes et leurs comportements.
-import RecipesStates from "./models/RecipesState.js";
-import Recipe from "./models/Recipe.js";
-import RecipeCard from "./templates/RecipeCard.js";
-import DropdownBox from "./templates/DropdownBox.js";
-import ArrayGeneration from "./models/ArrayGeneration.js";
-import SearchBar from "./templates/SearchBar.js";
+import RecipesStates from "models/RecipesState.js";
+import Recipe from "models/Recipe.js";
+import RecipeCard from "templates/RecipeCard.js";
+import DropdownBox from "templates/DropdownBox.js";
+import ArrayGeneration from "models/ArrayGeneration.js";
+import SearchBar from "templates/SearchBar.js";
 import dropdownboxManagement from "utils/dropdownboxManagement.js";
 import SearchBarManagement from "utils/SearchBarManagement.js";
-import TagsList from "./templates/TagsList.js";
-import dropdownboxInputManagement from "./utils/dropdownboxInputManagement.js";
-import TagsManagement from "./utils/TagsManagement.js";
+import TagsList from "templates/TagsList.js";
+import dropdownboxInputManagement from "utils/dropdownboxInputManagement.js";
+import TagsManagement from "utils/TagsManagement.js";
 
 export default class App {
   constructor() {
