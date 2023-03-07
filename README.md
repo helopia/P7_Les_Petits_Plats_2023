@@ -41,7 +41,7 @@ Parfait, merci pour tes conseils JB. Je me lance !
 ## Mission
 * Implémenter la fonctionnalité de recherche;
 * Le code passe avec succès le validateur W3C;
-* Réaliser deux implémentations et les comparer comparer, en se focalisant uniquement sur le champ de recherche principal.
+* Réaliser deux implémentations et les comparer, en se focalisant uniquement sur le champ de recherche principal.
 
 ## Compétences évaluées
 * Analyser un problème informatique
@@ -52,3 +52,6 @@ Parfait, merci pour tes conseils JB. Je me lance !
 
 ## Résultats jsbench
 * `https://jsben.ch/vZNVM`
+
+## Site web déployé
+* `https://helopia.github.io/P7_Les_Petits_Plats_2023/`
