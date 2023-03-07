@@ -1,6 +1,5 @@
 // Class en charge des eventlisteners et des comportement des DropdownBox (ouverture, fermeture et un seul dropdownbox ouvert à la fois)
 export default class dropdownboxManagement {
-  // constructor() {}
 
   eventListenerdropdownbox() {
     const allBtnOpen = document.querySelectorAll(".dropdownbox-btn");
