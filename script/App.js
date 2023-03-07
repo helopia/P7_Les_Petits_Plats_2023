@@ -5,10 +5,10 @@ import RecipeCard from "./templates/RecipeCard.js";
 import DropdownBox from "./templates/DropdownBox.js";
 import ArrayGeneration from "./models/ArrayGeneration.js";
 import SearchBar from "./templates/SearchBar.js";
-import Management from "./utils/dropdownboxManagement.js";
+import Management from "./utils/Management.js";
 import SearchBarManagement from "./utils/SearchBarManagement.js";
 import TagsList from "./templates/TagsList.js";
-import InputManagement from "./utils/dropdownboxInputManagement.js";
+import InputManagement from "./utils/InputManagement.js";
 import TagsManagement from "./utils/TagsManagement.js";
 
 export default class App {

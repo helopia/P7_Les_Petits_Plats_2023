@@ -1,6 +1,6 @@
 // Class en charge des eventListener et du comportement de chq input des DropdownBox
 // Le constructeur prends en paramètre le type d'input et la liste de tag correspondante
-export default class dropdownboxInputManagement {
+export default class InputManagement {
   constructor(inputType, allTags) {
     this.inputType = inputType;
     this.allTags = allTags;
