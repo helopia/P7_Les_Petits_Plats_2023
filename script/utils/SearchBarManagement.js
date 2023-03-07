@@ -1,4 +1,4 @@
-// Algo 2 avec les différentes méthodes de l'objet array (map, filter...)
+// Algo 1 avec des boucles natives (for...)
 // Class en charge de l'eventListener et du comportement du champ de recherche principal
 // Le constructeur prend en paramètre la liste des recettes et ses différents états via la class RecipesState
 export default class SearchBarManagement {
@@ -13,93 +13,102 @@ export default class SearchBarManagement {
       const searchRequest = event.target.value.toLowerCase();
       // console.log(searchRequest);
 
-      let filteredRecipes = [];
+      const filteredRecipes = [];
 
       // Si il y a des éléments ds le tableau de tag selectionnés
       if (this.recipesStates.selectedTags.length) {
         //  Et si la recherche est supérieur à 2 caractères
         if (searchRequest.length > 2) {
-          filteredRecipes = this.recipesStates.initialState.filter((recipe) => {
-            const ingredientsArray = recipe.ingredients.map((element) =>
-              element.ingredient.toLowerCase()
-            );
-            // console.log(ingredientsArray);
+          for (let i = 0; i < this.recipesStates.initialState.length; i += 1) {
+            const ingredientArray = [];
+            const { ingredients } = this.recipesStates.initialState[i];
+            const ustensilsArray = [];
+            const { ustensils } = this.recipesStates.initialState[i];
+            const { appliance } = this.recipesStates.initialState[i];
 
-            const ustensilsArray = recipe.ustensils.map((element) =>
-              element.toLowerCase()
-            );
-            // console.log(ustensilsArray);
+            for (let j = 0; j < ingredients.length; j += 1) {
+              ingredientArray.push(ingredients[j].ingredient);
+            }
 
-            const appliance = recipe.appliance.toLowerCase();
-            // console.log(appliance);
-            const allElementsLowercase = ingredientsArray.concat(
-              ustensilsArray,
-              appliance
-            );
-            // console.log(allElementsLowercase);
+            for (let j = 0; j < ustensils.length; j += 1) {
+              ustensilsArray.push(ustensils[j]);
+            }
 
-            const isMatch = this.recipesStates.selectedTags.every((val) =>
-              allElementsLowercase.join(" ").includes(val)
-            );
-            // console.log(isMatch);
+            const allElementsArray = ingredientArray.concat(ustensilsArray);
+            allElementsArray.push(appliance);
 
-            return isMatch === true;
-          });
-          // console.log(filteredRecipes);
+            const allElementsArrayLowercase = [];
+            for (let i = 0; i < allElementsArray.length; i += 1) {
+              allElementsArrayLowercase.push(allElementsArray[i].toLowerCase());
+            }
 
-          let filteredRecipesWithRequest = [];
-          filteredRecipesWithRequest = filteredRecipes.filter((recipe) => {
-            const ingredientsArray = recipe.ingredients.map((element) =>
-              element.ingredient.toLowerCase()
-            );
+            if (
+                this.recipesStates.selectedTags.every((val) =>
+                    allElementsArrayLowercase.join(" ").includes(val)
+                )
+            ) {
+              filteredRecipes.push(this.recipesStates.initialState[i]);
+            }
+          }
 
-            const name = recipe.name.toLowerCase();
+          const filteredRecipesWithRequest = [];
+          for (let i = 0; i < filteredRecipes.length; i += 1) {
+            const ingredientArray = [];
+            const { ingredients } = filteredRecipes[i];
+            const { name } = filteredRecipes[i];
+            const { description } = filteredRecipes[i];
 
-            const description = recipe.description.toLowerCase();
+            for (let j = 0; j < ingredients.length; j += 1) {
+              ingredientArray.push(ingredients[j].ingredient);
+            }
 
-            const isMatch =
-              ingredientsArray.join(" ").includes(searchRequest) ||
-              name.includes(searchRequest) ||
-              description.includes(searchRequest);
-
-            // console.log(isMatch);
-
-            return isMatch === true;
-          });
-          // console.log(filteredRecipesWithRequest);
-
+            if (
+                ingredientArray.join(" ").toLowerCase().includes(searchRequest) ||
+                name.toLowerCase().includes(searchRequest) ||
+                description.toLowerCase().includes(searchRequest)
+            ) {
+              filteredRecipesWithRequest.push(filteredRecipes[i]);
+              // console.log(filteredRecipes);
+            }
+          }
           this.recipesStates.updatedState = filteredRecipesWithRequest;
           // console.log(this.recipesStates.updatedState);
           this.recipesStates.updateRecipeList(this.recipesStates.updatedState);
         } else {
           // Ou si la recherche est inférieur à 2 caractères
-          filteredRecipes = this.recipesStates.initialState.filter((recipe) => {
-            const ingredientsArray = recipe.ingredients.map((element) =>
-              element.ingredient.toLowerCase()
-            );
-            // console.log(ingredientsArray);
+          for (let i = 0; i < this.recipesStates.initialState.length; i += 1) {
+            const ingredientArray = [];
+            const { ingredients } = this.recipesStates.initialState[i];
+            const ustensilsArray = [];
+            const { ustensils } = this.recipesStates.initialState[i];
+            const { appliance } = this.recipesStates.initialState[i];
 
-            const ustensilsArray = recipe.ustensils.map((element) =>
-              element.toLowerCase()
-            );
-            // console.log(ustensilsArray);
+            for (let j = 0; j < ingredients.length; j += 1) {
+              ingredientArray.push(ingredients[j].ingredient);
+            }
 
-            const appliance = recipe.appliance.toLowerCase();
-            // console.log(appliance);
-            const allElementsLowercase = ingredientsArray.concat(
-              ustensilsArray,
-              appliance
-            );
-            // console.log(allElementsLowercase);
+            for (let j = 0; j < ustensils.length; j += 1) {
+              ustensilsArray.push(ustensils[j]);
+            }
 
-            const isMatch = this.recipesStates.selectedTags.every((val) =>
-              allElementsLowercase.join(" ").includes(val)
-            );
-            // console.log(isMatch);
+            const allElementsArray = ingredientArray.concat(ustensilsArray);
+            allElementsArray.push(appliance);
+            const allElementsArrayLowercase = [];
+            for (let i = 0; i < allElementsArray.length; i += 1) {
+              allElementsArrayLowercase.push(allElementsArray[i].toLowerCase());
+            }
+            // const allElementsArrayLowercase = allElementsArray.map((elm) =>
+            //   elm.toLowerCase()
+            // );
 
-            return isMatch === true;
-          });
-
+            if (
+                this.recipesStates.selectedTags.every((val) =>
+                    allElementsArrayLowercase.join(" ").includes(val)
+                )
+            ) {
+              filteredRecipes.push(this.recipesStates.initialState[i]);
+            }
+          }
           this.recipesStates.updatedState = filteredRecipes;
           // console.log(this.recipesStates.updatedState);
           this.recipesStates.updateRecipeList(this.recipesStates.updatedState);
@@ -108,25 +117,25 @@ export default class SearchBarManagement {
       } else if (!this.recipesStates.selectedTags.length) {
         // Et si la recherche est supérieur à 2 caractères
         if (searchRequest.length > 2) {
-          filteredRecipes = this.recipesStates.initialState.filter((recipe) => {
-            const ingredientsArray = recipe.ingredients.map((element) =>
-              element.ingredient.toLowerCase()
-            );
+          for (let i = 0; i < this.recipesStates.initialState.length; i += 1) {
+            const ingredientArray = [];
+            const ingredients = this.recipesStates.initialState[i].ingredients;
+            const name = this.recipesStates.initialState[i].name;
+            const description = this.recipesStates.initialState[i].description;
 
-            const name = recipe.name.toLowerCase();
+            for (let j = 0; j < ingredients.length; j += 1) {
+              ingredientArray.push(ingredients[j].ingredient);
+            }
 
-            const description = recipe.description.toLowerCase();
-
-            const isMatch =
-              ingredientsArray.join(" ").includes(searchRequest) ||
-              name.includes(searchRequest) ||
-              description.includes(searchRequest);
-
-            // console.log(isMatch);
-
-            return isMatch === true;
-          });
-
+            if (
+                ingredientArray.join(" ").toLowerCase().includes(searchRequest) ||
+                name.toLowerCase().includes(searchRequest) ||
+                description.toLowerCase().includes(searchRequest)
+            ) {
+              filteredRecipes.push(this.recipesStates.initialState[i]);
+              // console.log(filteredRecipes);
+            }
+          }
           this.recipesStates.updatedState = filteredRecipes;
           // console.log(this.recipesStates.updatedState);
           this.recipesStates.updateRecipeList(this.recipesStates.updatedState);
@@ -137,7 +146,7 @@ export default class SearchBarManagement {
           if (allrecipes.length !== 50) {
             this.recipesStates.updatedState = [];
             this.recipesStates.updateRecipeList(
-              this.recipesStates.initialState
+                this.recipesStates.initialState
             );
           }
         }
