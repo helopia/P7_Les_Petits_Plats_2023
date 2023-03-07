@@ -1,24 +1,27 @@
 {
-  "name": "Les_Petits_Plats",
+  "name": "oc-lespetitsplats",
   "version": "1.0.0",
-  "description": "P7 - Les petits plats",
-  "main": "index.html",
+  "description": "développer un algorithme de recherche",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "sass": "sass --watch ./sass/main.scss:./assets/css/style.css "
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "BALSACK",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "Balsack Thomas",
   "license": "ISC",
-  "dependencies": {
-    "normalize.css": "^8.0.1"
+  "bugs": {
+    "url": ""
   },
+  "homepage": "",
   "devDependencies": {
-    "eslint": "^8.17.0",
+    "eslint": "^8.20.0",
     "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-config-google": "^0.14.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "prettier": "^2.8.3"
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.7.1"
   }
 }
