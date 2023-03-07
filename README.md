@@ -42,7 +42,7 @@ Parfait, merci pour tes conseils JB. Je me lance !
 * Implémenter la fonctionnalité de recherche;
 * Le code passe avec succès le validateur W3C;
 * Réaliser deux implémentations et les comparer comparer, en se focalisant uniquement sur le champ de recherche principal.
-* 
+
 ## Compétences évaluées
 * Analyser un problème informatique
 * Développer un algorithme pour résoudre un problème
