@@ -5,10 +5,10 @@ import RecipeCard from "./templates/RecipeCard.js";
 import DropdownBox from "./templates/DropdownBox.js";
 import ArrayGeneration from "./models/ArrayGeneration.js";
 import SearchBar from "./templates/SearchBar.js";
-import dropdownboxManagement from "./utils/dropdownboxManagement.js";
+import Management from "./utils/dropdownboxManagement.js";
 import SearchBarManagement from "./utils/SearchBarManagement.js";
 import TagsList from "./templates/TagsList.js";
-import dropdownboxInputManagement from "./utils/dropdownboxInputManagement.js";
+import InputManagement from "./utils/dropdownboxInputManagement.js";
 import TagsManagement from "./utils/TagsManagement.js";
 
 export default class App {
@@ -68,8 +68,8 @@ export default class App {
     this.dropdownboxUstensils.innerHTML =
       templateUstensilsdropdownbox.createdropdownbox();
 
-    // Ajout eventListeners des différentes DropdownBox via la class dropdownboxManagement
-    const eventListenerdropdownbox = new dropdownboxManagement();
+    // Ajout eventListeners des différentes DropdownBox via la class Management
+    const eventListenerdropdownbox = new Management();
     eventListenerdropdownbox.eventListenerdropdownbox();
   }
 
@@ -131,19 +131,19 @@ export default class App {
 
     // Ajout des eventListener pour chq input de chq DropdownBox
     // Prends en arguments la variable de l'élément html (input) et la liste de tags
-    const eventListenerInputIngredients = new dropdownboxInputManagement(
+    const eventListenerInputIngredients = new InputManagement(
       dropdownboxInputIngredients,
       dropdownboxListIngredients
     );
     eventListenerInputIngredients.eventListenerdropdownbox();
 
-    const eventListenerInputUstensils = new dropdownboxInputManagement(
+    const eventListenerInputUstensils = new InputManagement(
       dropdownboxInputUstensils,
       dropdownboxListUstensils
     );
     eventListenerInputUstensils.eventListenerdropdownbox();
 
-    const eventListenerInputAppliances = new dropdownboxInputManagement(
+    const eventListenerInputAppliances = new InputManagement(
       dropdownboxInputAppliances,
       dropdownboxListAppliances
     );
