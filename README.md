@@ -50,8 +50,9 @@ Parfait, merci pour tes conseils JB. Je me lance !
 ## Outils
 * JsBench : `https://jsben.ch/`
 
-## Résultats jsbench
+## Résultats jsbench/W3C
 * `https://jsben.ch/vZNVM`
+* `https://validator.w3.org/nu/?doc=https%3A%2F%2Fhelopia.github.io%2FP7_Les_Petits_Plats_2023%2Findex.html`
 
 ## Site web déployé
 * `https://helopia.github.io/P7_Les_Petits_Plats_2023/`
