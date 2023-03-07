@@ -1,5 +1,5 @@
 {
-  "name": "oc-lespetitsplats",
+  "name": "P7-LesPetitsPlats_2023",
   "version": "1.0.0",
   "description": "développer un algorithme de recherche",
   "main": "index.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/helopia/P7_Les_Petits_Plats_2023"
   },
   "author": "Balsack Thomas",
   "license": "ISC",
   "bugs": {
     "url": ""
   },
-  "homepage": "",
+  "homepage": "https://helopia.github.io/P7_Les_Petits_Plats_2023/",
   "devDependencies": {
     "eslint": "^8.20.0",
     "eslint-config-airbnb-base": "^15.0.0",
